@@ -1,0 +1,111 @@
+{
+  "topbar": {
+    "status": "Disponible para trabajar",
+    "downloadCv": "Descargar CV"
+  },
+  "navItems": [
+    { "id": "work", "label": "Experiencia" },
+    { "id": "services", "label": "Qué hago" },
+    { "id": "education", "label": "Educación" },
+    { "id": "contact", "label": "Contacto" }
+  ],
+  "hero": {
+    "eyebrow": "Ingeniero de Software · Desarrollador Web Full Stack",
+    "intro": "Construyo productos web con Angular, Java, Spring Boot, microservicios, workflows cloud y disciplina de entrega. Vivo en Bariloche y trabajo sobre código, arquitectura, planificación y ejecución.",
+    "focusLabel": "En foco",
+    "focusTitle": "Ingeniería que entrega",
+    "focusCopy": "Frontend, backend, datos, estimación y ejecución en el mismo circuito.",
+    "locationLabel": "Ubicación",
+    "locationTitle": "Bariloche, Rio Negro",
+    "locationCopy": "Disponible para colaboración remota y entrega orientada a producto."
+  },
+  "work": {
+    "kicker": "Experiencia",
+    "title": "Roles recientes y contexto de ejecución.",
+    "items": [
+      {
+        "company": "Interaxa",
+        "role": "Team Tech Leader / Software Engineer",
+        "period": "2023 - Actualidad",
+        "description": "Liderando entregas en iniciativas web, diseñando aplicaciones end-to-end y alineando la ejecución técnica con la planificación y la coordinación del equipo."
+      },
+      {
+        "company": "Freelance",
+        "role": "Full Stack Web Developer / Technical Lead",
+        "period": "2020 - Actualidad",
+        "description": "Construyendo sitios y aplicaciones web, manteniendo microservicios y bases de datos, y trabajando directo con clientes en alcance, estimación y entrega."
+      },
+      {
+        "company": "Accenture",
+        "role": "Semi Senior Web Developer",
+        "period": "2022 - 2023",
+        "description": "Implementé funcionalidades frontend y backend con foco en usabilidad, planificación de entregas y ejecución cross-team."
+      },
+      {
+        "company": "Globant",
+        "role": "Web Developer",
+        "period": "2021 - 2022",
+        "description": "Trabajé en funcionalidad backend, mantenimiento de sistemas legacy e ingeniería orientada a cloud con microservicios y flujos CI/CD."
+      }
+    ]
+  },
+  "services": {
+    "kicker": "Qué hago",
+    "title": "Ingeniería hands-on con ownership más allá de la implementación.",
+    "items": [
+      {
+        "title": "Entrega Full Stack",
+        "copy": "Aplicaciones web orientadas a producto con ownership sobre frontend, backend, datos y despliegue."
+      },
+      {
+        "title": "Liderazgo Técnico",
+        "copy": "Estimación de proyectos, planificación de entregas, guía de equipos y ejecución con accountability."
+      },
+      {
+        "title": "Sistemas Backend",
+        "copy": "Microservicios, bases de datos, workflows cloud y arquitectura de servicios mantenible."
+      }
+    ]
+  },
+  "education": {
+    "kicker": "Educación",
+    "title": "Formación académica y perfil de idiomas.",
+    "cardTitle": "Educación",
+    "languagesTitle": "Idiomas",
+    "items": [
+      {
+        "title": "Técnico en Programación",
+        "place": "Universidad Tecnologica Nacional",
+        "period": "2018 - 2021"
+      },
+      {
+        "title": "Arquitectura",
+        "place": "Universidad Nacional de Mar del Plata",
+        "period": "2012 - 2017"
+      },
+      {
+        "title": "Bachillerato Internacional",
+        "place": "Holy Trinity College",
+        "period": "2006 - 2012"
+      }
+    ],
+    "languages": [
+      { "name": "Español", "level": "Nativo" },
+      { "name": "Inglés", "level": "Fluido" }
+    ]
+  },
+  "contact": {
+    "kicker": "Contacto",
+    "title": "Disponible para trabajo serio de producto con bases sólidas de ingeniería.",
+    "copy": "Trabajo en inglés y español y aporto una perspectiva orientada a backend al delivery full stack.",
+    "links": [
+      { "label": "Email", "value": "matiasportela94@gmail.com", "href": "mailto:matiasportela94@gmail.com" },
+      { "label": "Teléfono", "value": "+54 9 11 5642 5716", "href": "tel:+5491156425716" },
+      { "label": "Ubicación", "value": "Bariloche, Rio Negro, Argentina", "href": "#contact" }
+    ]
+  },
+  "footerCta": {
+    "title": "Hablemos de tu proyecto.",
+    "action": "Contactame"
+  }
+}

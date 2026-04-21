@@ -1,0 +1,188 @@
+@if (copy; as copy) {
+  <main class="page-shell">
+    <section class="hero">
+      <nav class="topbar">
+        <span class="brand brand-status">{{ copy.topbar.status }}</span>
+
+        <div class="topbar-actions">
+          <div class="language-toggle" aria-label="Language selector">
+            <button type="button" [class.is-active]="currentLanguage === 'en'" (click)="setLanguage('en')">EN</button>
+            <button type="button" [class.is-active]="currentLanguage === 'es'" (click)="setLanguage('es')">ES</button>
+          </div>
+
+          <a class="button button-primary topbar-cv" href="/cv-matias-portela.pdf" download>
+            {{ copy.topbar.downloadCv }}
+          </a>
+        </div>
+      </nav>
+
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">{{ copy.hero.eyebrow }}</p>
+          <h1>Matias<br />Portela</h1>
+          <p class="hero-text">{{ copy.hero.intro }}</p>
+        </div>
+
+        <aside class="hero-sidebar">
+          <div class="stat-card">
+            <span class="stat-label">{{ copy.hero.focusLabel }}</span>
+            <strong>{{ copy.hero.focusTitle }}</strong>
+            <p>{{ copy.hero.focusCopy }}</p>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-label">{{ copy.hero.locationLabel }}</span>
+            <strong>{{ copy.hero.locationTitle }}</strong>
+            <p>{{ copy.hero.locationCopy }}</p>
+          </div>
+        </aside>
+
+        <div class="hero-stack-band">
+          <div class="inline-stack-panel" aria-label="Core stack logos">
+            @for (row of heroStackRows; track $index) {
+              <div class="inline-stack-row">
+                @for (technology of row; track technology.name) {
+                  <div class="inline-stack-logo" [attr.aria-label]="technology.name">
+                    @if (technology.icon === 'database') {
+                      <span class="inline-stack-db-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                          <ellipse cx="12" cy="6.5" rx="6.5" ry="3.25"></ellipse>
+                          <path d="M5.5 6.5v5c0 1.8 2.9 3.25 6.5 3.25s6.5-1.45 6.5-3.25v-5"></path>
+                          <path d="M5.5 11.5v5c0 1.8 2.9 3.25 6.5 3.25s6.5-1.45 6.5-3.25v-5"></path>
+                        </svg>
+                      </span>
+                    } @else if (technology.icon === 'cloud') {
+                      <span class="inline-stack-cloud-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                          <path d="M8 18.5h8.2a3.8 3.8 0 0 0 .5-7.6A5.6 5.6 0 0 0 6 9.3a4 4 0 0 0 2 9.2Z"></path>
+                        </svg>
+                      </span>
+                    } @else {
+                      <img
+                        [src]="'https://cdn.simpleicons.org/' + technology.slug + '/F6F3ED'"
+                        [alt]="technology.name + ' logo'"
+                        loading="lazy"
+                      />
+                    }
+
+                    <span>{{ technology.name }}</span>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <nav class="hero-nav" [class.is-sticky]="isHeroNavSticky" aria-label="Section navigation">
+        <div class="hero-nav-links">
+          @for (item of navItems; track item.id) {
+            <a
+              [href]="'#' + item.id"
+              [class.is-active]="activeSection === item.id"
+              (click)="setActiveSection(item.id)"
+            >
+              {{ item.label }}
+            </a>
+          }
+        </div>
+      </nav>
+    </section>
+
+    <section class="section work-section" id="work">
+      <div class="section-header">
+        <p class="section-kicker">{{ copy.work.kicker }}</p>
+        <h2>{{ copy.work.title }}</h2>
+      </div>
+
+      <div class="experience-grid">
+        @for (item of experience; track item.company + item.period) {
+          <article class="glass-card experience-card">
+            <div class="experience-meta">
+              <span class="company">{{ item.company }}</span>
+              <span class="period">{{ item.period }}</span>
+            </div>
+            <h3>{{ item.role }}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-header">
+        <p class="section-kicker">{{ copy.services.kicker }}</p>
+        <h2>{{ copy.services.title }}</h2>
+      </div>
+
+      <div class="service-grid">
+        @for (service of services; track service.title) {
+          <article class="glass-card service-card">
+            <span class="card-kicker">{{ service.title }}</span>
+            <p>{{ service.copy }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="section credentials-section" id="education">
+      <div class="section-header">
+        <p class="section-kicker">{{ copy.education.kicker }}</p>
+        <h2>{{ copy.education.title }}</h2>
+      </div>
+
+      <div class="credentials-grid">
+        <article class="glass-card credentials-card">
+          <span class="card-kicker">{{ copy.education.cardTitle }}</span>
+          <div class="credential-list">
+            @for (item of education; track item.title + item.period) {
+              <div class="credential-item">
+                <strong>{{ item.title }}</strong>
+                <span>{{ item.place }}</span>
+                <small>{{ item.period }}</small>
+              </div>
+            }
+          </div>
+        </article>
+
+        <article class="glass-card credentials-card">
+          <span class="card-kicker">{{ copy.education.languagesTitle }}</span>
+          <div class="language-list">
+            @for (language of languages; track language.name) {
+              <div class="language-item">
+                <span>{{ language.name }}</span>
+                <strong>{{ language.level }}</strong>
+              </div>
+            }
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-header">
+        <p class="section-kicker">{{ copy.contact.kicker }}</p>
+        <h2>{{ copy.contact.title }}</h2>
+      </div>
+
+      <div class="contact-banner glass-card">
+        <div class="contact-grid">
+          @for (link of contactLinks; track link.label) {
+            <a class="contact-card" [href]="link.href">
+              <span class="contact-label">{{ link.label }}</span>
+              <strong>{{ link.value }}</strong>
+            </a>
+          }
+        </div>
+
+        <div class="footer-cta">
+          <div class="footer-cta-copy">
+            <h2>{{ copy.footerCta.title }}</h2>
+          </div>
+
+          <a class="button button-primary footer-cta-button" href="#contact">{{ copy.footerCta.action }}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+}

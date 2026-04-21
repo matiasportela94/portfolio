@@ -1,0 +1,111 @@
+{
+  "topbar": {
+    "status": "Open to work",
+    "downloadCv": "Download CV"
+  },
+  "navItems": [
+    { "id": "work", "label": "Experience" },
+    { "id": "services", "label": "What I Do" },
+    { "id": "education", "label": "Education" },
+    { "id": "contact", "label": "Contact" }
+  ],
+  "hero": {
+    "eyebrow": "Software Engineer · Full Stack Web Developer",
+    "intro": "I build web products with Angular, Java, Spring Boot, microservices, cloud workflows, and delivery discipline. Based in Bariloche, I work across code, architecture, planning, and execution.",
+    "focusLabel": "Current focus",
+    "focusTitle": "Engineering that ships",
+    "focusCopy": "Frontend, backend, data, estimation, and execution in the same loop.",
+    "locationLabel": "Location",
+    "locationTitle": "Bariloche, Rio Negro",
+    "locationCopy": "Available for remote collaboration and product-focused delivery."
+  },
+  "work": {
+    "kicker": "Experience",
+    "title": "Recent roles and execution context.",
+    "items": [
+      {
+        "company": "Interaxa",
+        "role": "Team Tech Leader / Software Engineer",
+        "period": "2023 - Present",
+        "description": "Leading delivery across web initiatives, designing end-to-end applications, and aligning technical execution with planning and team coordination."
+      },
+      {
+        "company": "Freelance",
+        "role": "Full Stack Web Developer / Technical Lead",
+        "period": "2020 - Present",
+        "description": "Building dynamic websites and web applications, maintaining microservices and databases, and working directly with clients on scope, estimates, and delivery."
+      },
+      {
+        "company": "Accenture",
+        "role": "Semi Senior Web Developer",
+        "period": "2022 - 2023",
+        "description": "Implemented frontend and backend features with a strong focus on usability, delivery planning, and cross-team execution."
+      },
+      {
+        "company": "Globant",
+        "role": "Web Developer",
+        "period": "2021 - 2022",
+        "description": "Worked on backend functionality, legacy system maintenance, and cloud-oriented engineering with microservices and CI/CD workflows."
+      }
+    ]
+  },
+  "services": {
+    "kicker": "What I Do",
+    "title": "Hands-on engineering with ownership beyond implementation.",
+    "items": [
+      {
+        "title": "Full Stack Delivery",
+        "copy": "Product-oriented web applications with frontend, backend, data, and deployment ownership."
+      },
+      {
+        "title": "Technical Leadership",
+        "copy": "Project estimation, delivery planning, team guidance, and execution with accountability."
+      },
+      {
+        "title": "Backend Systems",
+        "copy": "Microservices, databases, cloud workflows, and maintainable service architecture."
+      }
+    ]
+  },
+  "education": {
+    "kicker": "Education",
+    "title": "Academic background and language profile.",
+    "cardTitle": "Education",
+    "languagesTitle": "Languages",
+    "items": [
+      {
+        "title": "Programming Technician",
+        "place": "Universidad Tecnologica Nacional",
+        "period": "2018 - 2021"
+      },
+      {
+        "title": "Architecture",
+        "place": "Universidad Nacional de Mar del Plata",
+        "period": "2012 - 2017"
+      },
+      {
+        "title": "International Baccalaureate",
+        "place": "Holy Trinity College",
+        "period": "2006 - 2012"
+      }
+    ],
+    "languages": [
+      { "name": "Spanish", "level": "Native" },
+      { "name": "English", "level": "Fluent" }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Open to serious product work with strong engineering foundations.",
+    "copy": "I work in English and Spanish and bring a backend-oriented perspective to full stack delivery.",
+    "links": [
+      { "label": "Email", "value": "matiasportela94@gmail.com", "href": "mailto:matiasportela94@gmail.com" },
+      { "label": "Phone", "value": "+54 9 11 5642 5716", "href": "tel:+5491156425716" },
+      { "label": "Location", "value": "Bariloche, Rio Negro, Argentina", "href": "#contact" }
+    ]
+  },
+  "footerCta": {
+    "title": "Let's talk about your project.",
+    "action": "Contact me"
+  }
+}

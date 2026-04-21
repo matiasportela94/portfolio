@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #090b10;
+  --bg-2: #10131a;
+  --ink: #f6f3ed;
+  --soft-ink: #bab5ac;
+  --muted: #8e928f;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --glass: linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(11, 14, 20, 0.88));
+  --display-font: 'Outfit', 'Segoe UI', sans-serif;
+  --body-font: 'Inter', 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--body-font);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(39, 189, 155, 0.15), transparent 25%),
+    radial-gradient(circle at 86% 22%, rgba(255, 123, 53, 0.28), transparent 28%),
+    radial-gradient(circle at 92% 38%, rgba(255, 123, 53, 0.12), transparent 22%),
+    radial-gradient(circle at 50% 80%, rgba(82, 95, 255, 0.12), transparent 25%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
