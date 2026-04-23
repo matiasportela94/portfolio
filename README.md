@@ -1,59 +1,78 @@
-# Portfolio
+# Matias Portela | Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+Personal portfolio built with Angular 19.
 
-## Development server
+This site is a compact presentation of who I am and how I work: software engineering, full stack delivery, backend-oriented thinking, product execution, and technical ownership from idea to release.
 
-To start a local development server, run:
+## About Me
 
-```bash
-ng serve
+I'm Matias Portela, a Software Engineer and Full Stack Web Developer based in Rio Negro, Argentina.
+
+I consider myself a passionate Full Stack Web Developer with experience not only in building products, but also in creating structure around them and helping projects move forward with clarity.
+
+I am comfortable working across different stages of development, from frontend implementation and backend systems to technical planning, coordination, and delivery. That versatility allows me to approach each phase of a project with confidence and a strong sense of ownership.
+
+I care about building solutions that are technically solid, practical for real users, and maintainable over time. I value clean execution, product thinking, and effective collaboration with the people around me.
+
+Alongside the technical side, I also bring strong organizational skills. I can contribute through implementation, estimation, planning, communication, and follow-through, which makes me especially effective in collaborative environments where execution quality matters.
+
+I work across:
+
+- Angular and frontend delivery
+- Java, Spring Boot, and backend systems
+- Microservices and cloud workflows
+- Product execution, technical planning, and delivery ownership
+
+This portfolio is meant to feel direct and practical, just like the way I work.
+
+## Stack
+
+- Angular 19
+- TypeScript
+- SCSS
+- Angular CLI
+
+## Project Structure
+
+```text
+src/                 Application source
+public/              Static assets served as-is
+public/assets/i18n/  Translations
+public/assets/docs/  CV PDFs
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Levantar El Proyecto
 
-## Code scaffolding
+### Requisitos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js
+- npm
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Instalar dependencias
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+### Levantar en desarrollo
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The app will run on:
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```text
+http://localhost:4200/
 ```
 
-## Running end-to-end tests
+## Notes
 
-For end-to-end (e2e) testing, run:
+- Static files are served from `public/`
+- The active CV download points to `public/assets/docs/`
+- Translations are loaded from JSON files in `public/assets/i18n/`
 
-```bash
-ng e2e
-```
+## Contact
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Email: `matiasportela94@gmail.com`
+- Location: `Rio Negro, Argentina`
