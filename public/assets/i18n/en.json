@@ -11,12 +11,12 @@
   ],
   "hero": {
     "eyebrow": "Software Engineer · Full Stack Web Developer",
-    "intro": "I build web products with Angular, Java, Spring Boot, microservices, cloud workflows, and delivery discipline. Based in Bariloche, I work across code, architecture, planning, and execution.",
+    "intro": "I build web products with Angular, Java, Spring Boot, microservices, cloud workflows, and delivery discipline. I work across code, architecture, planning, and execution.",
     "focusLabel": "Current focus",
     "focusTitle": "Engineering that ships",
     "focusCopy": "Frontend, backend, data, estimation, and execution in the same loop.",
     "locationLabel": "Location",
-    "locationTitle": "Bariloche, Rio Negro",
+    "locationTitle": "Rio Negro, Argentina",
     "locationCopy": "Available for remote collaboration and product-focused delivery."
   },
   "work": {
@@ -72,19 +72,23 @@
     "title": "Academic background and language profile.",
     "cardTitle": "Education",
     "languagesTitle": "Languages",
+    "certificationsTitle": "Certifications and diplomas",
     "items": [
       {
-        "title": "Programming Technician",
-        "place": "Universidad Tecnologica Nacional",
-        "period": "2018 - 2021"
+        "title": "University Programming Technician",
+        "status": "Graduated",
+        "place": "Universidad Tecnológica Nacional",
+        "period": "2017 - 2020"
       },
       {
         "title": "Architecture",
+        "status": "Incomplete",
         "place": "Universidad Nacional de Mar del Plata",
-        "period": "2012 - 2017"
+        "period": "2013 - 2016"
       },
       {
         "title": "International Baccalaureate",
+        "status": "Diploma earned",
         "place": "Holy Trinity College",
         "period": "2006 - 2012"
       }
@@ -92,6 +96,48 @@
     "languages": [
       { "name": "Spanish", "level": "Native" },
       { "name": "English", "level": "Fluent" }
+    ],
+    "certifications": [
+      {
+        "title": "Principles of Artificial Intelligence",
+        "issuer": "Digital House",
+        "status": "Issued Sep. 2025"
+      },
+      {
+        "title": "SQL: Database Creation",
+        "issuer": "Udemy",
+        "status": "Issued Oct. 2020"
+      },
+      {
+        "title": "Complete Web Developer",
+        "issuer": "Udemy",
+        "status": "Course completed"
+      },
+      {
+        "title": "Spring Boot from Scratch",
+        "issuer": "Udemy",
+        "status": "Course completed"
+      },
+      {
+        "title": "Complete Java Master: From Zero to Expert",
+        "issuer": "Udemy",
+        "status": "Course completed"
+      },
+      {
+        "title": "Docker & Networking Master",
+        "issuer": "Udemy",
+        "status": "Course completed"
+      },
+      {
+        "title": "SAT",
+        "issuer": "College Board",
+        "status": "Exam passed"
+      },
+      {
+        "title": "Cambridge English",
+        "issuer": "Cambridge",
+        "status": "Certification earned"
+      }
     ]
   },
   "contact": {
@@ -100,8 +146,7 @@
     "copy": "I work in English and Spanish and bring a backend-oriented perspective to full stack delivery.",
     "links": [
       { "label": "Email", "value": "matiasportela94@gmail.com", "href": "mailto:matiasportela94@gmail.com" },
-      { "label": "Phone", "value": "+54 9 11 5642 5716", "href": "tel:+5491156425716" },
-      { "label": "Location", "value": "Bariloche, Rio Negro, Argentina", "href": "#contact" }
+      { "label": "Location", "value": "Rio Negro, Argentina", "href": "#contact" }
     ]
   },
   "footerCta": {

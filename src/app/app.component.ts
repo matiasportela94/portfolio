@@ -27,6 +27,7 @@ type ServiceItem = {
 
 type EducationItem = {
   title: string;
+  status: string;
   place: string;
   period: string;
 };
@@ -34,6 +35,12 @@ type EducationItem = {
 type LanguageItem = {
   name: string;
   level: string;
+};
+
+type CertificationItem = {
+  title: string;
+  issuer: string;
+  status: string;
 };
 
 type TranslationFile = {
@@ -67,8 +74,10 @@ type TranslationFile = {
     title: string;
     cardTitle: string;
     languagesTitle: string;
+    certificationsTitle: string;
     items: EducationItem[];
     languages: LanguageItem[];
+    certifications: CertificationItem[];
   };
   contact: {
     kicker: string;
@@ -92,6 +101,23 @@ export class AppComponent implements OnInit, AfterViewInit {
   protected copy: TranslationFile | null = null;
   protected activeSection = 'work';
   protected isHeroNavSticky = false;
+  protected isMobileStackLayout = false;
+  protected toastMessage = '';
+  protected isToastVisible = false;
+  protected readonly whatsappPhone = '5491156425716';
+  protected readonly cvByLanguage: Record<Language, string> = {
+    en: '/assets/docs/MatiasPortelaCV-EN.pdf',
+    es: '/assets/docs/MatiasPortelaCV-ES.pdf'
+  };
+  protected readonly whatsappMessageByLanguage: Record<Language, string> = {
+    en: "Hi Matias, I saw your portfolio and I'd like to talk about a project.",
+    es: 'Hola Matias, vi tu portfolio y me gustaria hablar sobre un proyecto.'
+  };
+  protected readonly copyToastByLanguage: Record<Language, string> = {
+    en: 'Copied to clipboard!',
+    es: 'Email copiado!'
+  };
+  private toastTimeoutId: number | null = null;
 
   protected readonly heroStackRows = [
     [
@@ -108,6 +134,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       { name: 'Git', slug: 'git' }
     ]
   ];
+  protected readonly heroStackItems = this.heroStackRows.flat();
 
   ngOnInit(): void {
     const savedLanguage = localStorage.getItem('portfolio-language');
@@ -120,6 +147,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.updateViewportFlags();
     this.updateHeroNavState();
     this.updateActiveSection();
   }
@@ -132,6 +160,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:resize')
   protected onWindowResize(): void {
+    this.updateViewportFlags();
     this.updateHeroNavState();
     this.updateActiveSection();
   }
@@ -156,8 +185,67 @@ export class AppComponent implements OnInit, AfterViewInit {
     return this.copy?.education.languages ?? [];
   }
 
+  protected get certifications(): CertificationItem[] {
+    return this.copy?.education.certifications ?? [];
+  }
+
   protected get contactLinks(): LinkItem[] {
     return this.copy?.contact.links ?? [];
+  }
+
+  protected get currentCvUrl(): string {
+    return this.cvByLanguage[this.currentLanguage];
+  }
+
+  protected get whatsappUrl(): string {
+    const message = encodeURIComponent(this.whatsappMessageByLanguage[this.currentLanguage]);
+    return `https://wa.me/${this.whatsappPhone}?text=${message}`;
+  }
+
+  protected async onContactClick(event: MouseEvent, link: LinkItem): Promise<void> {
+    if (link.href.startsWith('mailto:')) {
+      event.preventDefault();
+      await this.copyToClipboard(link.value);
+      return;
+    }
+
+    if (link.href.startsWith('tel:')) {
+      event.preventDefault();
+      window.open(this.whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
+  }
+
+  private async copyToClipboard(value: string): Promise<void> {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+      this.showToast(this.copyToastByLanguage[this.currentLanguage]);
+      return;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = value;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    this.showToast(this.copyToastByLanguage[this.currentLanguage]);
+  }
+
+  private showToast(message: string): void {
+    this.toastMessage = message;
+    this.isToastVisible = true;
+
+    if (this.toastTimeoutId) {
+      window.clearTimeout(this.toastTimeoutId);
+    }
+
+    this.toastTimeoutId = window.setTimeout(() => {
+      this.isToastVisible = false;
+      this.toastTimeoutId = null;
+    }, 2200);
   }
 
   protected setActiveSection(sectionId: string): void {
@@ -194,6 +282,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     this.isHeroNavSticky = heroNav.getBoundingClientRect().top <= 16;
+  }
+
+  private updateViewportFlags(): void {
+    this.isMobileStackLayout = window.innerWidth <= 720;
   }
 
   private updateActiveSection(): void {

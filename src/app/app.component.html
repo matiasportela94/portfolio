@@ -10,7 +10,7 @@
             <button type="button" [class.is-active]="currentLanguage === 'es'" (click)="setLanguage('es')">ES</button>
           </div>
 
-          <a class="button button-primary topbar-cv" href="/cv-matias-portela.pdf" download>
+          <a class="button button-primary topbar-cv" [href]="currentCvUrl" download>
             {{ copy.topbar.downloadCv }}
           </a>
         </div>
@@ -39,9 +39,9 @@
 
         <div class="hero-stack-band">
           <div class="inline-stack-panel" aria-label="Core stack logos">
-            @for (row of heroStackRows; track $index) {
-              <div class="inline-stack-row">
-                @for (technology of row; track technology.name) {
+            @if (isMobileStackLayout) {
+              <div class="inline-stack-row inline-stack-row-mobile">
+                @for (technology of heroStackItems; track technology.name) {
                   <div class="inline-stack-logo" [attr.aria-label]="technology.name">
                     @if (technology.icon === 'database') {
                       <span class="inline-stack-db-icon" aria-hidden="true">
@@ -69,6 +69,38 @@
                   </div>
                 }
               </div>
+            } @else {
+              @for (row of heroStackRows; track $index) {
+                <div class="inline-stack-row">
+                  @for (technology of row; track technology.name) {
+                    <div class="inline-stack-logo" [attr.aria-label]="technology.name">
+                      @if (technology.icon === 'database') {
+                        <span class="inline-stack-db-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <ellipse cx="12" cy="6.5" rx="6.5" ry="3.25"></ellipse>
+                            <path d="M5.5 6.5v5c0 1.8 2.9 3.25 6.5 3.25s6.5-1.45 6.5-3.25v-5"></path>
+                            <path d="M5.5 11.5v5c0 1.8 2.9 3.25 6.5 3.25s6.5-1.45 6.5-3.25v-5"></path>
+                          </svg>
+                        </span>
+                      } @else if (technology.icon === 'cloud') {
+                        <span class="inline-stack-cloud-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M8 18.5h8.2a3.8 3.8 0 0 0 .5-7.6A5.6 5.6 0 0 0 6 9.3a4 4 0 0 0 2 9.2Z"></path>
+                          </svg>
+                        </span>
+                      } @else {
+                        <img
+                          [src]="'https://cdn.simpleicons.org/' + technology.slug + '/F6F3ED'"
+                          [alt]="technology.name + ' logo'"
+                          loading="lazy"
+                        />
+                      }
+
+                      <span>{{ technology.name }}</span>
+                    </div>
+                  }
+                </div>
+              }
             }
           </div>
         </div>
@@ -137,21 +169,37 @@
           <div class="credential-list">
             @for (item of education; track item.title + item.period) {
               <div class="credential-item">
-                <strong>{{ item.title }}</strong>
+                <div class="credential-heading">
+                  <strong>{{ item.title }}</strong>
+                  <span class="credential-status">{{ item.status }}</span>
+                </div>
                 <span>{{ item.place }}</span>
                 <small>{{ item.period }}</small>
               </div>
             }
           </div>
+
+          <div class="language-section">
+            <span class="card-kicker">{{ copy.education.languagesTitle }}</span>
+            <div class="language-list">
+              @for (language of languages; track language.name) {
+                <div class="language-item">
+                  <span>{{ language.name }}</span>
+                  <strong>{{ language.level }}</strong>
+                </div>
+              }
+            </div>
+          </div>
         </article>
 
         <article class="glass-card credentials-card">
-          <span class="card-kicker">{{ copy.education.languagesTitle }}</span>
-          <div class="language-list">
-            @for (language of languages; track language.name) {
-              <div class="language-item">
-                <span>{{ language.name }}</span>
-                <strong>{{ language.level }}</strong>
+          <span class="card-kicker">{{ copy.education.certificationsTitle }}</span>
+          <div class="certification-list">
+            @for (certification of certifications; track certification.title + certification.issuer) {
+              <div class="certification-item">
+                <strong>{{ certification.title }}</strong>
+                <span>{{ certification.issuer }}</span>
+                <small>{{ certification.status }}</small>
               </div>
             }
           </div>
@@ -168,7 +216,13 @@
       <div class="contact-banner glass-card">
         <div class="contact-grid">
           @for (link of contactLinks; track link.label) {
-            <a class="contact-card" [href]="link.href">
+            <a
+              class="contact-card"
+              [href]="link.href.startsWith('tel:') ? whatsappUrl : link.href"
+              [attr.target]="link.href.startsWith('tel:') ? '_blank' : null"
+              [attr.rel]="link.href.startsWith('tel:') ? 'noopener noreferrer' : null"
+              (click)="onContactClick($event, link)"
+            >
               <span class="contact-label">{{ link.label }}</span>
               <strong>{{ link.value }}</strong>
             </a>
@@ -180,9 +234,20 @@
             <h2>{{ copy.footerCta.title }}</h2>
           </div>
 
-          <a class="button button-primary footer-cta-button" href="#contact">{{ copy.footerCta.action }}</a>
+          <a
+            class="button button-primary footer-cta-button"
+            [href]="whatsappUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ copy.footerCta.action }}
+          </a>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="toast" [class.is-visible]="isToastVisible" aria-live="polite" aria-atomic="true">
+    {{ toastMessage }}
+  </div>
 }

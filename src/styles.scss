@@ -15,11 +15,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: clip;
   font-family: var(--body-font);
   color: var(--ink);
   background:
